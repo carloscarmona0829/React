@@ -1,0 +1,11 @@
+$color-sass: #bf4080;
+$color-sass-80: #bf408080; //los ultimos dos dígitos representan el 80% de opacidad
+
+.bg-sass{
+    background-color: $color-sass;
+    transition: background-color .5rem ease-in-out;
+
+    &:hover{
+        background-color: $color-sass-80;
+    }
+}
