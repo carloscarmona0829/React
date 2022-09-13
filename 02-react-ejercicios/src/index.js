@@ -6,9 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  //cuando activo el StrictMode la aplicación se renderiza 2 veces y los msj de la consola salen dobles por eso los comenté y mas bien metí el App dentro de un fragmento.
+  //<React.StrictMode>
+  <>
+  <App />
+  </>    
+  //</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
