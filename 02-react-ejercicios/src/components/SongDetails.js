@@ -13,7 +13,8 @@ const SongDetails = ({search, lyric, bio}) => {
           bgColor="#dc3545"
         />
       ) : (
-        <SongLyric title={search.song} lyrics={lyric.lyrics} />
+        <SongLyric title={search.song} lyrics={lyric.location_area_encounters
+        } />
       )}
       {bio.artists ? (
         <SongArtist artist={bio.artists[0]} />

@@ -17,8 +17,8 @@ const SongSearch = () => {
         const {artist, song} = search;
 
         let artistUrl = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;        
-        let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
-        //let songUrl = `https://pokeapi.co/api/v2/pokemon/${song}`;
+        //let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+        let songUrl = `https://pokeapi.co/api/v2/pokemon/${song}`;
 
         console.log(artistUrl, songUrl);
 
@@ -48,11 +48,13 @@ const SongSearch = () => {
   return (
     <div>
       <h2>Song Search</h2>
-      {loading && <Loader />}
+      <article className="grid-1-3">
       <SongForm handleSearch={handleSearch} />
+      {loading && <Loader />}
       {search && !loading && (
       <SongDetails search={search} lyric={lyric} bio={bio}/>
-      )}      
+      )}    
+      </article>  
     </div>
   );
 };
