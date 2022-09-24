@@ -1,0 +1,18 @@
+{ 
+    "get_municipios":{
+        "error": false,
+        "code_error":0,
+        "error_message":null,
+        "response":{
+        "municipio":[
+        "Medellín",
+        "Bello",
+        "La Estrella",
+        "Caldas",
+        "Sabaneta",
+        "Guarne",
+        "Marinilla"
+    ]
+  }
+  }
+}

@@ -1,0 +1,18 @@
+{ 
+    "get_departamentos":{
+        "error": false,
+        "code_error":0,
+        "error_message":null,
+        "response":{
+        "departamento":[
+        "Antioquia",
+        "Caldas",
+        "Risaralda",
+        "Meta",
+        "Huila",
+        "Guaviare",
+        "Tolima"
+    ]
+  }
+  }
+}

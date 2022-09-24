@@ -17,7 +17,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fake-api": "json-server --watch src/api/db.json --port 5000"
+    "fake-api": "json-server --watch src/api/dbSantos.json --port 5000",
+    "fake-departamentos": "json-server --watch src/api/dbDepartamentos.json --port 4000",
+    "fake-municipios": "json-server --watch src/api/dbMunicipios.json --port 4001",
+    "fake-barrios": "json-server --watch src/api/dbBarrios.json --port 4002"
+
   },
   "eslintConfig": {
     "extends": [
