@@ -4,7 +4,7 @@ import Message from "./Message";
 
 const SelectList = ({ title, url, handleChange }) => {
   const { data, error, loading } = useFetch(url);
-  console.log(data, error, loading);
+  //console.log(data, error, loading);
 
   if (!data) return null;
 

@@ -24,7 +24,7 @@ const SelectAnidados = () => {
             {state && (
             <SelectList 
             title="municipio" 
-            url="http://localhost:4001/get_municipios"
+            url="http://localhost:4000/get_municipios"
             handleChange={(e)=>{
                 setTown(e.target.value);
             }}
@@ -34,7 +34,7 @@ const SelectAnidados = () => {
             {town && (
             <SelectList 
             title="barrio" 
-            url="http://localhost:4002/get_barrios"
+            url="http://localhost:4000/get_barrios"
             handleChange={(e)=>{
                 setSuburb(e.target.value);
             }}
