@@ -1,6 +1,10 @@
 # React
 Proyecto de React siguiendo a https://jonmircha.com/
 
+# Crear proyecto con create-react-app (npx create-react-app 03-react-rutas)
+
+# Crear proyecto de rutas con React Router (yarn add react-router-dom) Esta instrucción dentro de la carpeta creada para las rutas https://v5.reactrouter.com/web/guides/quick-start.
+
 # Iniciar proyecto npm start (Debe estar parado en la ruta donde se instaló create-app)
 
 # Iniciar JSON SERVER sin SCRIPT npm run "json-server --watch src/api/db.json --port 5000" (Debe estar parado en la ruta donde se instaló create-app y el archivo db.json debe ser una base de datos en formato json)
