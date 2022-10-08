@@ -41,6 +41,15 @@ const MenuConceptos = () => {
           <span>Productos:</span>
           <NavLink activeclassname="active" to="/productos">Productos</NavLink>
         </li>
+        <li>
+          <span>Redirecciones:</span>
+          <NavLink activeclassname="active" to="/about">About</NavLink>
+          <NavLink activeclassname="active" to="/contact">Contact</NavLink>
+        </li>
+        <li>
+          <span>Rutas Anidadas:</span>
+          <NavLink activeclassname="active" to="/react">React</NavLink>
+        </li>
       </ol>
     </nav>
   );
