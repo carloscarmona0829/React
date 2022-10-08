@@ -32,6 +32,15 @@ const MenuConceptos = () => {
             Contacto
           </NavLink>
         </li>
+        <li>
+          <span>Parámetros:</span>
+          <NavLink activeclassname="active" to="/usuario/carloscarmona0829">Carlos Carmona</NavLink>
+          <NavLink activeclassname="active" to="/usuario/luisavera77">Luisa Vera</NavLink>
+        </li>
+        <li>
+          <span>Productos:</span>
+          <NavLink activeclassname="active" to="/productos">Productos</NavLink>
+        </li>
       </ol>
     </nav>
   );
