@@ -34,21 +34,42 @@ const MenuConceptos = () => {
         </li>
         <li>
           <span>Parámetros:</span>
-          <NavLink activeclassname="active" to="/usuario/carloscarmona0829">Carlos Carmona</NavLink>
-          <NavLink activeclassname="active" to="/usuario/luisavera77">Luisa Vera</NavLink>
+          <NavLink activeclassname="active" to="/usuario/carloscarmona0829">
+            Carlos Carmona
+          </NavLink>
+          <NavLink activeclassname="active" to="/usuario/luisavera77">
+            Luisa Vera
+          </NavLink>
         </li>
         <li>
           <span>Productos:</span>
-          <NavLink activeclassname="active" to="/productos">Productos</NavLink>
+          <NavLink activeclassname="active" to="/productos">
+            Productos
+          </NavLink>
         </li>
         <li>
           <span>Redirecciones:</span>
-          <NavLink activeclassname="active" to="/about">About</NavLink>
-          <NavLink activeclassname="active" to="/contact">Contact</NavLink>
+          <NavLink activeclassname="active" to="/about">
+            About
+          </NavLink>
+          <NavLink activeclassname="active" to="/contact">
+            Contact
+          </NavLink>
         </li>
         <li>
           <span>Rutas Anidadas:</span>
-          <NavLink activeclassname="active" to="/react">React</NavLink>
+          <NavLink activeclassname="active" to="/react">
+            React
+          </NavLink>
+        </li>
+        <li>
+          <span>Rutas Provadas:</span>
+          <NavLink activeclassname="active" to="/login">
+            Login
+          </NavLink>
+          <NavLink activeclassname="active" to="/dashboard">
+            Dashboard
+          </NavLink>
         </li>
       </ol>
     </nav>
