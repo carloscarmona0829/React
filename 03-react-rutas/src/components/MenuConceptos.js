@@ -63,7 +63,7 @@ const MenuConceptos = () => {
           </NavLink>
         </li>
         <li>
-          <span>Rutas Provadas:</span>
+          <span>Rutas Privadas:</span>
           <NavLink activeclassname="active" to="/login">
             Login
           </NavLink>
