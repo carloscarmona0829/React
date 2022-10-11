@@ -1,8 +1,9 @@
 //Este ejercicio funciona iniciando un json server con  npm run fake-api  donde (fake-api) es un script en el json server
 
 import React, { useEffect, useState } from "react";
-import { HashRouter } from "react-router-dom";
+import { HashRouter, NavLink, Route, Routes } from "react-router-dom";
 import { helpHttp } from "../helpers/helpHttp";
+import Error404 from "../pages/Error404";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 import Loader from "./Loader";
@@ -102,14 +103,13 @@ const CrudApi = () => {
 
   return (
     <div>
-      <h2>CRUD Api</h2>
-      <article className="grid-1-2">
-        <CrudForm
-          createData={createData}
-          updateData={updateData}
-          dataToEdit={dataToEdit}
-          setDataToEdit={setDataToEdit}
-        />
+      <h2>CRUD API con Rutas</h2>
+      <NavLink to="/" activeclassname="active">Santos</NavLink>
+      <NavLink to="/agregar" activeclassname="active">Agregar</NavLink>
+      <NavLink to="/editar" activeclassname="active">Editar</NavLink>
+      <Routes>
+        <Route exact path="/" element={
+          <>
         {loading && <Loader />}
         {error && (
           <Message
@@ -124,6 +124,29 @@ const CrudApi = () => {
             deleteData={deleteData}
           />
         )}
+        </>
+        } />
+        
+        <Route exact path="/agregar" element={
+        <CrudForm
+        createData={createData}
+        updateData={updateData}
+        dataToEdit={dataToEdit}
+        setDataToEdit={setDataToEdit}
+      />
+        } />
+        <Route exact path="/editar:id" element={
+        <CrudForm
+        createData={createData}
+        updateData={updateData}
+        dataToEdit={dataToEdit}
+        setDataToEdit={setDataToEdit}
+      />
+        } />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+      <article className="grid-1-2">        
+        
       </article>
     </div>
   );

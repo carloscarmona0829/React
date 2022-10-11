@@ -39,6 +39,21 @@
       "name": "Shura",
       "constellation": "Capricornio",
       "id": 1617237562207
+    },
+    {
+      "name": "Afrodita",
+      "constellation": "Piscis",
+      "id": 1665493290732
+    },
+    {
+      "name": "Milo",
+      "constellation": "Escorpión",
+      "id": 1665493599872
+    },
+    {
+      "name": "Shaka",
+      "constellation": "Virgo",
+      "id": 1665493832952
     }
   ]
 }
