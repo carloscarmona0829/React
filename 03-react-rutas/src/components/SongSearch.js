@@ -5,15 +5,20 @@ import Error404 from "../pages/Error404";
 import Loader from "./Loader";
 import SongDetails from "./SongDetails";
 import SongForm from "./SongForm";
+import SongTable from "./SongTable";
+
+let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
 
 const SongSearch = () => {
   const [search, setSearch] = useState(null);
   const [lyric, setLyric] = useState(null);
   const [bio, setBio] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [mySongs, setMySongs] = useState(mySongsInit);
 
   useEffect(() => {
-    if(search === null) return;
+    //if(search === null) return;
+    if (search !== null){
 
     const fetchData = async () => {
         const {artist, song} = search;
@@ -22,7 +27,7 @@ const SongSearch = () => {
         //let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
         let songUrl = `https://pokeapi.co/api/v2/pokemon/${song}`;
 
-        console.log(artistUrl, songUrl);
+        //console.log(artistUrl, songUrl);
 
         setLoading(true);
 
@@ -31,7 +36,7 @@ const SongSearch = () => {
             helpHttp().get(songUrl),
         ]);
 
-        console.log(artistRes, songRes);
+        //console.log("Search", artistRes, songRes);
 
         setBio(artistRes);
         setLyric(songRes);
@@ -40,11 +45,33 @@ const SongSearch = () => {
     };
 
     fetchData();
-  }, [search]);
+
+    //console.log("mySongs", mySongs);
+
+    localStorage.setItem("mySongs", JSON.stringify(mySongs));
+  }
+  }, [search, mySongs]);
 
   const handleSearch = (data) => {
-    console.log(data);
+    //console.log(data);
     setSearch(data);
+  };
+
+  const handleSaveSong = () => {
+    alert("Canción Agregada a Favoritos");
+    let currentSong = {
+      search, lyric, bio
+    }
+
+    //console.log("currentSong", currentSong);
+    //console.log("search",search, "lyric",lyric, "bio",bio);
+
+    setMySongs((mySongs) => [...mySongs, currentSong]);   
+    setSearch(null);
+  };
+
+  const handleDeleteSong = (id) => {
+    alert(`Eliminando Canción con el Id ${id}`);
   };
 
   return (
@@ -54,13 +81,13 @@ const SongSearch = () => {
       <NavLink to="/" activeclassname="active">Home</NavLink>
       </header>
       {loading && <Loader />}
-      <article className="grid-1-3">
+      <article className="grid-1-2">
         <Routes>
           <Route exact path="/" element={
           <>
           <br />
-          <SongForm handleSearch={handleSearch} />
-          <h2>Tabla de Canciones</h2>
+          <SongForm handleSearch={handleSearch} handleSaveSong={handleSaveSong}/>
+          <SongTable mySongs={mySongs} handleDeleteSong={handleDeleteSong}/>
           {search && !loading && (
           <SongDetails search={search} lyric={lyric} bio={bio} />
         )}
