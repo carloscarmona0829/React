@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { helpHttp } from "../helpers/helpHttp";
 import Error404 from "../pages/Error404";
+import SongPage from "../pages/SongPage";
 import Loader from "./Loader";
 import SongDetails from "./SongDetails";
 import SongForm from "./SongForm";
@@ -41,15 +42,14 @@ const SongSearch = () => {
         setBio(artistRes);
         setLyric(songRes);
         setLoading(false);
-
     };
 
     fetchData();
-
     //console.log("mySongs", mySongs);
 
     localStorage.setItem("mySongs", JSON.stringify(mySongs));
   }
+  return;
   }, [search, mySongs]);
 
   const handleSearch = (data) => {
@@ -60,18 +60,27 @@ const SongSearch = () => {
   const handleSaveSong = () => {
     alert("Canción Agregada a Favoritos");
     let currentSong = {
-      search, lyric, bio
-    }
-
-    //console.log("currentSong", currentSong);
-    //console.log("search",search, "lyric",lyric, "bio",bio);
-
-    setMySongs((mySongs) => [...mySongs, currentSong]);   
+      search, 
+      lyric, 
+      bio
+    }; 
+    
+    let songs = [...mySongs, currentSong];
+    setMySongs(songs);
     setSearch(null);
-  };
+    localStorage.setItem("mySongs", JSON.stringify(songs));
+  };  
 
   const handleDeleteSong = (id) => {
-    alert(`Eliminando Canción con el Id ${id}`);
+    //alert(`Eliminando Canción con el Id ${id}`);
+    let isDelete = window.confirm(`¿ Estas seguro de elminiar la canción con el id "${id}" ?`
+    );
+
+    if(isDelete){
+      let songs = mySongs.filter((el, index) => index !== id);
+      setMySongs(songs);
+      localStorage.setItem("mySongs", JSON.stringify(songs));
+    }
   };
 
   return (
@@ -94,11 +103,7 @@ const SongSearch = () => {
           </>
         }>          
         </Route>
-        <Route exact path="/canciones/:id" element={
-          <>
-          <h2>Página de la Canción</h2>
-          </>
-        }>
+        <Route exact path="/canciones/:id" element={<SongPage mySongs={mySongs} />}>
         </Route>
         <Route path="*" element={<Error404 />} />
         </Routes>        
