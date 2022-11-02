@@ -1,0 +1,79 @@
+import { createSlice } from "@reduxjs/toolkit";
+// import {
+//   ADD_TO_CART,
+//   CLEAR_CART,
+//   REMOVE_ALL_FROM_CART,
+//   REMOVE_ONE_FROM_CART,
+// } from "../types";
+
+ const initialState = {
+  products: [
+    { id: 1, name: "Producto 1", price: 100 },
+    { id: 2, name: "Producto 2", price: 200 },
+    { id: 3, name: "Producto 3", price: 300 },
+    { id: 4, name: "Producto 4", price: 400 },
+    { id: 5, name: "Producto 5", price: 500 },
+    { id: 6, name: "Producto 6", price: 600 },
+  ],
+  cart: [],
+};
+
+export const shoppingSlice = createSlice({
+  name: 'shopping',
+  initialState,
+  reducers: {
+    ADD_TO_CART: (state, action) => {
+      let newItem = state.products.find(
+        (product) => product.id === action.payload
+      );
+      console.log(newItem);
+
+      let itemInCart = state.cart.find((item) => item.id === newItem.id);
+
+      return itemInCart
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === newItem.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          }
+        : { ...state, cart: [...state.cart, { ...newItem, quantity: 1 }] };
+    },
+
+    REMOVE_ONE_FROM_CART: (state, action) => {
+      let itemToDelete = state.cart.find((item) => item.id === action.payload);
+
+      return itemToDelete.quantity > 1
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === action.payload
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cart: state.cart.filter((item) => item.id !== action.payload),
+          };
+    },
+
+    REMOVE_ALL_FROM_CART: (state, action) => {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+    },
+
+    CLEAR_CART: () => {
+      return initialState;
+    },
+  },
+})
+
+// Action creators are generated for each case reducer function
+export const { ADD_TO_CART, REMOVE_ONE_FROM_CART, REMOVE_ALL_FROM_CART, CLEAR_CART } = shoppingSlice.actions;
+
+export default shoppingSlice.reducer;
