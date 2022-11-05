@@ -4,7 +4,7 @@ import { decrement, increment, incrementByAmount } from '../slices/counterSlice'
 
 export function ContadorRedux() {
 
-  const count = useSelector((state) => state.counter.value)
+  const count = useSelector((state) => state.counterSlice.value)
   const dispatch = useDispatch()
 
   return (

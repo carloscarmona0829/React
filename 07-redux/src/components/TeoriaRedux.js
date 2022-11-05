@@ -1,5 +1,6 @@
 import reduxImg from "../assets/redux.jpg";
 import reduxGif from "../assets/redux.gif";
+import ReduxToolkitsEstructure from "../assets/ReduxToolkitsEstructure.jpg";
 
 const TeoriaRedux = () => {
   return (
@@ -38,6 +39,7 @@ const TeoriaRedux = () => {
           , son funciones que gestionan los <i>actions</i>.
         </li>
       </ul>
+      <img src={ReduxToolkitsEstructure} alt="Diagrama ReduxToolkit" />
       <img src={reduxImg} alt="Diagrama Redux" />
       <img src={reduxGif} alt="Diagrama Redux Animado" />
     </div>
