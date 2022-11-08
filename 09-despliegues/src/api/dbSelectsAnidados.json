@@ -1,0 +1,52 @@
+{ 
+    "get_departamentos":{
+        "error": false,
+        "code_error":0,
+        "error_message":null,
+        "response":{
+        "departamento":[
+        "Antioquia",
+        "Caldas",
+        "Risaralda",
+        "Meta",
+        "Huila",
+        "Guaviare",
+        "Tolima"
+    ]
+  }
+  },
+
+  "get_municipios":{
+    "error": false,
+    "code_error":0,
+    "error_message":null,
+    "response":{
+    "municipio":[
+    "Medellín",
+    "Bello",
+    "La Estrella",
+    "Caldas",
+    "Sabaneta",
+    "Guarne",
+    "Marinilla"
+]
+}
+},
+
+"get_barrios":{
+  "error": false,
+  "code_error":0,
+  "error_message":null,
+  "response":{
+  "barrio":[
+  "Robledo",
+  "Castilla",
+  "Poblado",
+  "12 de Octubre",
+  "La Floresta",
+  "San Germán",
+  "Villa Flora"
+]
+}
+}
+}
